@@ -1,5 +1,5 @@
 import { ExternalLink, Github } from 'lucide-react';
-import { ImageWithFallback } from '../projectSection-image/ImageWithFallback';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
 import { useScrollAnimation } from './useScrollAnimation';
 
 const projects = [
