@@ -4,29 +4,21 @@ import { useScrollAnimation } from './useScrollAnimation';
 
 const projects = [
   {
-    title: 'Analytics Dashboard',
-    description: 'Full-stack analytics platform with real-time data visualization. Built with React, Node.js, and PostgreSQL.',
+    title: 'Gram panchayat',
+    description: 'Management of Taxes, Certificates, Notices, Meetings, Schemes, and Meetings. Built with HTML, CSS, JavaScript, PHP, and MySQL.',
     image: 'https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY1NjY5MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Chart.js'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'PHP','MySQL'],
     liveUrl: '#',
     githubUrl: '#'
   },
   {
-    title: 'Task Management App',
-    description: 'Collaborative task management tool with team features and notifications. Mobile-responsive design.',
+    title: 'Devtool',
+    description: 'Hero Section UI With GSAP Animation',
     image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY1NjE0MTk4fDA&ixlib=rb-4.1.0&q=80&w=1080',
-    tech: ['Next.js', 'TypeScript', 'Tailwind', 'Firebase'],
+    tech: ['React', 'CSS', 'JavaScript', 'GSAP'],
     liveUrl: '#',
     githubUrl: '#'
   },
-  {
-    title: 'E-commerce Platform',
-    description: 'Online store with payment integration, inventory management, and admin dashboard.',
-    image: 'https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2NTYzNTUyMXww&ixlib=rb-4.1.0&q=80&w=1080',
-    tech: ['React', 'Express', 'MongoDB', 'Stripe'],
-    liveUrl: '#',
-    githubUrl: '#'
-  }
 ];
 
 export function Projects() {

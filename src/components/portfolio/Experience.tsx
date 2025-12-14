@@ -18,8 +18,13 @@ const experience = [
 const education = [
   {
     degree: 'Bachelor of Computer Science',
-    institution: 'University Name',
-    period: '2016 - 2020'
+    institution: 'Gangamai Education Society College Of Engineering',
+    period: '2023 - Present'
+  },
+  {
+    degree:'Diploma In Computer Engineering',
+    institution:'SSVPS Polytechnic',
+    period:'2023 - 2025'
   }
 ];
 
@@ -29,7 +34,7 @@ export function Experience() {
   return (
     <section id="education" className="py-20 border-t border-gray-200 dark:border-gray-700">
       <div ref={ref} className="opacity-0 translate-y-8 transition-all duration-700">
-        <div className="mb-16">
+        {/* <div className="mb-16">
           <h2 className="text-2xl mb-8 dark:text-white">Experience</h2>
           <div className="space-y-8">
             {experience.map((job, index) => (
@@ -45,7 +50,7 @@ export function Experience() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div>
           <h2 className="text-2xl mb-8 dark:text-white">Education</h2>

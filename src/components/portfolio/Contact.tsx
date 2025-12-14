@@ -5,14 +5,14 @@ const links = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'uday@example.com',
-    href: 'mailto:uday@example.com'
+    value: 'auday248@outlook.com',
+    href: 'mailto:auday@outlook.com'
   },
   {
     icon: Github,
     label: 'GitHub',
-    value: 'github.com/uday',
-    href: 'https://github.com'
+    value: 'github.com/udayahire2',
+    href: 'https://github.com/udayahire2'
   },
   {
     icon: Linkedin,
