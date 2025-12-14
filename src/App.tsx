@@ -1,25 +1,20 @@
-import { Hero } from './components/portfolio/Hero';
-import { Skills } from './components/portfolio/Skills';
-import { Projects } from './components/portfolio/Projects';
-import { Experience } from './components/portfolio/Experience';
-import { Resume } from './components/portfolio/Resume';
-import { Contact } from './components/portfolio/Contact';
-import { MusicPlayer } from './components/portfolio/MusicPlayer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/portfolio/Navigation';
+import { PortfolioPage } from './components/portfolio/PortfolioPage';
+import { ComponentsPage } from './components/portfolio/ComponentsPage';
+import { ComponentDetailPage } from './components/portfolio/ComponentDetailPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-      <Navigation />
-      <div className="max-w-4xl mx-auto px-6 pt-32">
-        <Hero />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Resume />
-        <Contact />
+    <Router>
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<PortfolioPage />} />
+          <Route path="/components" element={<ComponentsPage />} />
+          <Route path="/components/:componentId" element={<ComponentDetailPage />} />
+        </Routes>
       </div>
-      <MusicPlayer />
-    </div>
+    </Router>
   );
 }

@@ -12,7 +12,9 @@ const resumeData = {
   ],
   
   certifications: [
-    'Web Developement Certification - Sumago Infotech'
+    'React Developer Certification - Meta',
+    'Full Stack Web Development - freeCodeCamp',
+    'JavaScript Algorithms and Data Structures'
   ]
 };
 
@@ -25,7 +27,7 @@ export function Resume() {
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-2xl dark:text-white">Resume</h2>
           <a
-            href=""
+            href="#"
             download
             className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
           >

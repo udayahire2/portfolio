@@ -6,7 +6,7 @@ const projects = [
   {
     title: 'Gram panchayat',
     description: 'Management of Taxes, Certificates, Notices, Meetings, Schemes, and Meetings. Built with HTML, CSS, JavaScript, PHP, and MySQL.',
-    image: 'https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY1NjY5MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://udayahire2.github.io/uday-portfolio/gram.png',
     tech: ['HTML', 'CSS', 'JavaScript', 'PHP','MySQL'],
     liveUrl: '#',
     githubUrl: '#'
@@ -14,7 +14,7 @@ const projects = [
   {
     title: 'Devtool',
     description: 'Hero Section UI With GSAP Animation',
-    image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY1NjE0MTk4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    image: 'https://udayahire2.github.io/uday-portfolio/Frame%2055.png',
     tech: ['React', 'CSS', 'JavaScript', 'GSAP'],
     liveUrl: '#',
     githubUrl: '#'
