@@ -1,25 +1,25 @@
 import { useScrollAnimation } from './useScrollAnimation';
 
-const experience = [
-  {
-    title: 'Frontend Developer',
-    company: 'Tech Solutions Inc.',
-    period: '2022 - Present',
-    description: 'Develop and maintain customer-facing web applications using React and TypeScript. Collaborate with design and backend teams to implement new features.'
-  },
-  {
-    title: 'Junior Web Developer',
-    company: 'Digital Agency',
-    period: '2020 - 2022',
-    description: 'Built responsive websites and landing pages for clients. Worked with WordPress, JavaScript, and modern CSS frameworks.'
-  }
-];
+// const experience = [
+//   {
+//     title: 'Frontend Developer',
+//     company: 'Tech Solutions Inc.',
+//     period: '2022 - Present',
+//     description: 'Develop and maintain customer-facing web applications using React and TypeScript. Collaborate with design and backend teams to implement new features.'
+//   },
+//   {
+//     title: 'Junior Web Developer',
+//     company: 'Digital Agency',
+//     period: '2020 - 2022',
+//     description: 'Built responsive websites and landing pages for clients. Worked with WordPress, JavaScript, and modern CSS frameworks.'
+//   }
+// ];
 
 const education = [
   {
     degree: 'Bachelor of Computer Science',
     institution: 'Gangamai Education Society College Of Engineering',
-    period: '2023 - Present'
+    period: '2025 - Present'
   },
   {
     degree:'Diploma In Computer Engineering',

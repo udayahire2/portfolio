@@ -1,3 +1,4 @@
+import profile from '../assets/profile.png'
 export function Hero() {
   return (
     <section id="about" className="py-20 animate-fade-in">
@@ -16,7 +17,7 @@ export function Hero() {
         <div className="flex-shrink-0">
           <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gray-200 dark:border-gray-700 shadow-lg">
             <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" 
+              src={profile} 
               alt="Uday Ahire - Web Developer"
               className="w-full h-full object-cover"
             />
