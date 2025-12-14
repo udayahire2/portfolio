@@ -1,0 +1,83 @@
+import { ExternalLink, Github } from 'lucide-react';
+import { ImageWithFallback } from '../figma/ImageWithFallback';
+import { useScrollAnimation } from './useScrollAnimation';
+
+const projects = [
+  {
+    title: 'Analytics Dashboard',
+    description: 'Full-stack analytics platform with real-time data visualization. Built with React, Node.js, and PostgreSQL.',
+    image: 'https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBkYXNoYm9hcmQlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzY1NjY5MTUyfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Chart.js'],
+    liveUrl: '#',
+    githubUrl: '#'
+  },
+  {
+    title: 'Task Management App',
+    description: 'Collaborative task management tool with team features and notifications. Mobile-responsive design.',
+    image: 'https://images.unsplash.com/photo-1609921212029-bb5a28e60960?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ258ZW58MXx8fHwxNzY1NjE0MTk4fDA&ixlib=rb-4.1.0&q=80&w=1080',
+    tech: ['Next.js', 'TypeScript', 'Tailwind', 'Firebase'],
+    liveUrl: '#',
+    githubUrl: '#'
+  },
+  {
+    title: 'E-commerce Platform',
+    description: 'Online store with payment integration, inventory management, and admin dashboard.',
+    image: 'https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjB3ZWJzaXRlfGVufDF8fHx8MTc2NTYzNTUyMXww&ixlib=rb-4.1.0&q=80&w=1080',
+    tech: ['React', 'Express', 'MongoDB', 'Stripe'],
+    liveUrl: '#',
+    githubUrl: '#'
+  }
+];
+
+export function Projects() {
+  const ref = useScrollAnimation();
+
+  return (
+    <section id="projects" className="py-20 border-t border-gray-200 dark:border-gray-700">
+      <div ref={ref} className="opacity-0 translate-y-8 transition-all duration-700">
+        <h2 className="text-2xl mb-12 dark:text-white">Projects</h2>
+        <div className="space-y-16">
+          {projects.map((project, index) => (
+            <div key={index} className="group">
+              <div className="mb-4 overflow-hidden bg-gray-100 dark:bg-gray-800">
+                <ImageWithFallback
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+              
+              <h3 className="text-xl mb-2 dark:text-white">{project.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{project.description}</p>
+              
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tech.map((tech) => (
+                  <span key={tech} className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 bg-gray-50 dark:bg-gray-800">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex gap-4">
+                <a 
+                  href={project.liveUrl}
+                  className="text-sm text-gray-900 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Live Site
+                </a>
+                <a 
+                  href={project.githubUrl}
+                  className="text-sm text-gray-900 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2"
+                >
+                  <Github className="w-4 h-4" />
+                  Source Code
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
