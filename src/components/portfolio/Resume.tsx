@@ -1,8 +1,8 @@
-import { Download, FileText, Briefcase, Code, Award } from 'lucide-react';
+import { Download, FileText, Code, Award } from 'lucide-react';
 import { useScrollAnimation } from './useScrollAnimation';
 
 const resumeData = {
-  summary: "Full-stack web developer. Proficient in React, TypeScript, and Node.js with a focus on creating clean, maintainable code and user-centered experiences.",
+  summary: "Full-stack web developer with 4+ years of experience building modern web applications. Proficient in React, TypeScript, and Node.js with a focus on creating clean, maintainable code and user-centered experiences.",
   
   technicalSkills: [
     { category: 'Frontend', skills: 'React, TypeScript, Next.js, Tailwind CSS, JavaScript (ES6+)' },
@@ -12,7 +12,9 @@ const resumeData = {
   ],
   
   certifications: [
-    'Web Developement - Sumago Infotech'
+    'React Developer Certification - Meta',
+    'Full Stack Web Development - freeCodeCamp',
+    'JavaScript Algorithms and Data Structures'
   ]
 };
 
@@ -61,7 +63,6 @@ export function Resume() {
           </div>
         </div>
 
-       
         {/* Certifications */}
         <div>
           <div className="flex items-center gap-3 mb-4">

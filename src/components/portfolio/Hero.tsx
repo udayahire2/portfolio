@@ -1,4 +1,5 @@
-import profile from '../assets/profile.png'
+import profileImage from "figma:asset/dd7e693bce9dc92dd3ffb047c8141c18a0f430f3.png";
+
 export function Hero() {
   return (
     <section id="about" className="py-20 animate-fade-in">
@@ -17,8 +18,8 @@ export function Hero() {
         <div className="flex-shrink-0">
           <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-gray-200 dark:border-gray-700 shadow-lg">
             <img 
-              src={profile} 
-              alt="Uday Ahire - Web Developer"
+              src={profileImage}
+              alt="Uday - Web Developer"
               className="w-full h-full object-cover"
             />
           </div>

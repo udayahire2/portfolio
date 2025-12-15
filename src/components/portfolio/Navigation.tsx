@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun, Search, Command } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { componentLibraryData } from './componentLibraryData';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -100,21 +101,44 @@ export function Navigation() {
     { label: 'Components', id: 'components', isRoute: true }
   ];
 
+  // Flatten all components from categories
+  const allComponents = componentLibraryData.flatMap(category => 
+    category.components.map(comp => ({
+      label: comp.name,
+      id: comp.id,
+      type: 'component' as const,
+      category: category.categoryName,
+      keywords: [comp.name.toLowerCase(), category.categoryName.toLowerCase(), comp.description.toLowerCase()]
+    }))
+  );
+
   const searchableContent = [
-    { label: 'About', id: 'about', keywords: ['about', 'introduction', 'developer', 'web developer'] },
-    { label: 'Skills', id: 'skills', keywords: ['skills', 'technologies', 'frontend', 'react', 'javascript'] },
-    { label: 'Projects', id: 'projects', keywords: ['projects', 'work', 'portfolio', 'applications'] },
-    { label: 'Experience', id: 'experience', keywords: ['experience', 'work history', 'jobs', 'career'] },
-    { label: 'Resume', id: 'resume', keywords: ['resume', 'cv', 'download', 'pdf'] },
-    { label: 'Contact', id: 'contact', keywords: ['contact', 'email', 'reach out', 'get in touch'] }
+    { label: 'About', id: 'about', type: 'section' as const, keywords: ['about', 'introduction', 'developer', 'web developer'] },
+    { label: 'Skills', id: 'skills', type: 'section' as const, keywords: ['skills', 'technologies', 'frontend', 'react', 'javascript'] },
+    { label: 'Projects', id: 'projects', type: 'section' as const, keywords: ['projects', 'work', 'portfolio', 'applications'] },
+    { label: 'Experience', id: 'experience', type: 'section' as const, keywords: ['experience', 'work history', 'jobs', 'career'] },
+    { label: 'Resume', id: 'resume', type: 'section' as const, keywords: ['resume', 'cv', 'download', 'pdf'] },
+    { label: 'Contact', id: 'contact', type: 'section' as const, keywords: ['contact', 'email', 'reach out', 'get in touch'] },
+    ...allComponents
   ];
 
   const filteredResults = searchableContent.filter(item => 
     searchQuery && (
       item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.keywords.some(keyword => keyword.toLowerCase().includes(searchQuery.toLowerCase()))
+      item.keywords.some(keyword => keyword.includes(searchQuery.toLowerCase()))
     )
   );
+
+  const handleSearchResultClick = (result: typeof searchableContent[0]) => {
+    if (result.type === 'component') {
+      navigate('/components');
+      setIsSearchOpen(false);
+      setSearchQuery('');
+      // TODO: Select the component in the sidebar
+    } else {
+      scrollToSection(result.id);
+    }
+  };
 
   return (
     <>
@@ -215,36 +239,36 @@ export function Navigation() {
       {/* Search Modal */}
       {isSearchOpen && (
         <div 
-          className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-start justify-center pt-24 px-4"
+          className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-start justify-center pt-20 px-4"
           onClick={() => {
             setIsSearchOpen(false);
             setSearchQuery('');
           }}
         >
           <div 
-            className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full max-w-2xl bg-[#2a3441] rounded-xl shadow-2xl overflow-hidden border border-gray-700"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Search Input */}
-            <div className="flex items-center gap-4 px-6 py-4 border-b border-gray-200 dark:border-gray-700">
-              <Search className="w-6 h-6 text-gray-400" />
+            <div className="flex items-center gap-4 px-6 py-4 border-b border-gray-700">
+              <Search className="w-5 h-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search sections..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 bg-transparent outline-none text-lg dark:text-white"
+                className="flex-1 bg-transparent outline-none text-base text-gray-300 placeholder:text-gray-500"
                 autoFocus
               />
-              <div className="flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">
-                <span className="text-sm text-gray-600 dark:text-gray-400">ESC</span>
+              <div className="px-2 py-1 bg-gray-700/50 rounded text-xs text-gray-400">
+                ESC
               </div>
             </div>
 
             {/* Search Results */}
-            <div className="max-h-96 overflow-y-auto">
+            <div className="min-h-[200px] max-h-96 overflow-y-auto">
               {searchQuery === '' ? (
-                <div className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                <div className="px-6 py-16 text-center text-gray-400 text-sm">
                   Type to search through portfolio sections
                 </div>
               ) : filteredResults.length > 0 ? (
@@ -252,39 +276,42 @@ export function Navigation() {
                   {filteredResults.map((result) => (
                     <button
                       key={result.id}
-                      onClick={() => scrollToSection(result.id)}
-                      className="w-full px-6 py-3 text-left hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-3"
+                      onClick={() => handleSearchResultClick(result)}
+                      className="w-full px-6 py-3 text-left hover:bg-gray-700/40 transition-colors flex items-center justify-between group"
                     >
-                      <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center">
-                        <span className="text-blue-600 dark:text-blue-400 text-sm">
-                          {result.label[0]}
-                        </span>
-                      </div>
-                      <div>
-                        <div className="font-medium dark:text-white">{result.label}</div>
-                        <div className="text-sm text-gray-500 dark:text-gray-400">
-                          Jump to {result.label.toLowerCase()} section
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-blue-500/10 rounded flex items-center justify-center">
+                          <span className="text-blue-400 text-sm font-medium">
+                            {result.label[0]}
+                          </span>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-gray-200">{result.label}</div>
+                          <div className="text-xs text-gray-500 mt-0.5">
+                            {result.type === 'component' ? `Component · ${'category' in result ? result.category : ''}` : 'Section'}
+                          </div>
                         </div>
                       </div>
+                      <div className="text-xs text-gray-600 group-hover:text-gray-400 transition-colors">↵</div>
                     </button>
                   ))}
                 </div>
               ) : (
-                <div className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                <div className="px-6 py-16 text-center text-gray-400 text-sm">
                   No results found for "{searchQuery}"
                 </div>
               )}
             </div>
 
-            {/* Search Tips */}
-            <div className="px-6 py-3 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
-                <div className="flex items-center gap-1">
-                  <kbd className="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded">↵</kbd>
+            {/* Footer */}
+            <div className="px-6 py-3 bg-[#242b36] border-t border-gray-700">
+              <div className="flex items-center gap-6 text-xs text-gray-500">
+                <div className="flex items-center gap-2">
+                  <kbd className="px-2 py-1 bg-gray-700/50 rounded text-gray-400">↵</kbd>
                   <span>to select</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <kbd className="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded">ESC</kbd>
+                <div className="flex items-center gap-2">
+                  <kbd className="px-2 py-1 bg-gray-700/50 rounded text-gray-400">ESC</kbd>
                   <span>to close</span>
                 </div>
               </div>

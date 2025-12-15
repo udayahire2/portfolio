@@ -1,0 +1,38 @@
+/* Shiki code highlighting styles */
+.code-highlight pre {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.code-highlight code {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.code-highlight .line {
+  display: block;
+  min-height: 1.5em;
+}
+
+/* Scrollbar styling for code blocks */
+.code-highlight::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+.code-highlight::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.code-highlight::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+.code-highlight::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}

@@ -3,6 +3,8 @@ import { Navigation } from './components/portfolio/Navigation';
 import { PortfolioPage } from './components/portfolio/PortfolioPage';
 import { ComponentsPage } from './components/portfolio/ComponentsPage';
 import { ComponentDetailPage } from './components/portfolio/ComponentDetailPage';
+import './styles/globals.css';
+import './styles/shiki.css';
 
 export default function App() {
   return (
