@@ -12,9 +12,7 @@ const resumeData = {
   ],
   
   certifications: [
-    'React Developer Certification - Meta',
-    'Full Stack Web Development - freeCodeCamp',
-    'JavaScript Algorithms and Data Structures'
+    'Web Developement - Sumago Infotech'
   ]
 };
 
